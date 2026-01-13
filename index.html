@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>WebApp Foggia - Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra superiore -->
+    <header class="top-bar">
+        <div class="home">🏠</div>
+        <div class="menu">☰</div>
+    </header>
+
+    <!-- Contenitore principale -->
+    <main class="container">
+
+        <!-- Sezione sinistra: Immagine -->
+        <section class="image-section">
+            <h2>IMMAGINE</h2>
+            <img id="media" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Foggia_Piazza_Cavour.jpg" alt="Foggia">
+
+            <!-- Freccia come nella bozza -->
+            <div class="arrow">⬇</div>
+
+            <!-- Pulsanti -->
+            <div class="buttons">
+                <button onclick="changeMedia('img')">IMG</button>
+                <button onclick="changeMedia('map')">MAP</button>
+                <button onclick="changeMedia('video')">VIDEO</button>
+                <button onclick="changeMedia('3d')">3D</button>
+            </div>
+        </section>
+
+        <!-- Sezione destra: Testo -->
+        <section class="text-section">
+            <h2>TESTO</h2>
+            <p id="text">
+                Foggia è una città della Puglia situata nel cuore del Tavoliere delle Puglie. 
+                È uno dei più importanti centri agricoli d’Italia, famosa per la produzione di grano, 
+                pomodori e olio d’oliva. La città ha origini antiche e una forte tradizione culturale.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
