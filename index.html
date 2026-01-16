@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiera di Foggia</title>
+<style>
+:root{--bg:#f4f4f4;--white:#fff;--border:#ddd;--accent:#6fa86f;--text:#222}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}
+body{background:var(--bg);color:var(--text)}
+header{height:60px;background:var(--white);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.icon{font-size:20px;cursor:pointer}
+main{padding:20px}
+.layout{display:flex;gap:20px}
+.left{flex:0 0 60%;background:var(--white);border:1px solid var(--border);padding:15px}
+.content-area{width:100%;border:1px solid var(--border)}
+.content-area img,.content-area iframe{width:100%;height:420px;border:0}
+.scroll-arrow{text-align:center;font-size:24px;margin:10px 0;color:var(--accent)}
+.tabs{display:flex;border-top:1px solid var(--border)}
+.tab{flex:1;padding:10px;text-align:center;cursor:pointer;background:#fafafa;border-right:1px solid var(--border)}
+.tab:last-child{border-right:none}
+.tab.active{background:var(--accent);color:#fff;font-weight:bold}
+.right{flex:0 0 40%;background:var(--white);border:1px solid var(--border);padding:15px;display:flex;flex-direction:column}
+.right h2{margin-bottom:10px;border-bottom:1px solid var(--border)}
+.text{overflow-y:auto;max-height:420px;line-height:1.6}
+@media(max-width:768px){.layout{flex-direction:column}.left,.right{flex:1}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="icon">🏠</div>
+  <div class="icon">☰</div>
+</header>
+
+<main>
+<div class="layout">
+
+<section class="left">
+  <div class="content-area" id="contentArea">
+    <img src="IMG_9413_2.jpg" alt="Fiera dell'Agricoltura - Foggia">
+  </div>
+
+  <div class="scroll-arrow">↓</div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showImage(this)">IMM</div>
+    <div class="tab" onclick="showMap(this)">MAP</div>
+    <div class="tab" onclick="activateTab(this)">VIDEO</div>
+    <div class="tab" onclick="activateTab(this)">3D</div>
+  </div>
+</section>
+
+<aside class="right">
+  <h2>TESTO</h2>
+  <div class="text">
+    <p>La Fiera di Foggia è un ente fieristico storico, noto soprattutto per la Fiera d'Ottobre, un evento popolare con ingresso gratuito, che si svolge annualmente nel quartiere fieristico di Foggia (l'edizione 2025 è prevista dal 17 al 19 ottobre), oltre a ospitare altri eventi specifici come la Fiera dell'Agricoltura (in fase di riprogrammazione).</p><br>
+    <p>L'ente sta lavorando al rilancio con nuovi progetti e necessita di sostegno finanziario per completare le infrastrutture.</p>
+  </div>
+</aside>
+
+</div>
+</main>
+
+<script>
+const area=document.getElementById('contentArea');
+function resetTabs(el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function showImage(el){
+  resetTabs(el);
+  area.innerHTML='<img src="IMG_9413_2.jpg" alt="Fiera dell Agricoltura - Foggia">';
+}
+function showMap(el){
+  resetTabs(el);
+  area.innerHTML=`<iframe src="https://www.openstreetmap.org/export/embed.html?bbox=15.5545%2C41.4505%2C15.5745%2C41.4605&layer=mapnik&marker=41.455691443395814%2C15.564553468998481"></iframe>`;
+}
+function activateTab(el){
+  resetTabs(el);
+  area.innerHTML='<div style="height:420px;display:flex;align-items:center;justify-content:center;color:#888;">Contenuto non disponibile</div>';
+}
+</script>
+
+</body>
+</html>
